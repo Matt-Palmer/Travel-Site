@@ -1,12 +1,18 @@
 $orange: rgba(165, 82, 0, 1);
-$fadedOrange: rgba(165, 82, 0, .75);
+$fadedOrange: rgba(72, 111, 101, .75);
 $inactiveOrange: rgba(165, 82, 0, .5);
 $yellow: rgba(184, 159, 0, 1);
-$green: rgba(32, 64, 30, 1);
-$fadedGreen: rgb(87, 126, 85);
+$fadedYellow: rgba(241, 201, 1, .75);
+$green: rgba(28, 52, 17, 1);
+$fadedGreen: rgba(87, 126, 85, .75);
 $white: rgba(255,255,255,1);
 $fadedWhite: rgba(255,255,255,.75);
 $inactiveWhite: rgba(255,255,255,.5);
+
+$linkBlue: rgba(72, 111, 101, .75);
+$linkYellow: rgba(241, 201, 1, .75);
+$linkOrange: rgba(205, 148, 1, .75);
+$linkGreen: rgba(0,154,43, .75);
 
 *{
     box-sizing: border-box;
@@ -14,19 +20,39 @@ $inactiveWhite: rgba(255,255,255,.5);
     padding: 0;
 }
 
+body,
+html{
+    height: 100vh;
+    min-height: 100vh;
+}
+
 header{
     position: fixed;
     width: 100%;
     height: 75px;
     background-color: $green;
-    box-shadow: 0 5px 5px 0 black;
     overflow: hidden;
     padding-top: 20px;
     transition: height .5s;
+    z-index: 100;
     
     h1{
         text-align: center;
         color: white;
+    }
+    
+    button{
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        left: 10px;
+        border: none;
+        background: transparent;
+        
+        img{
+            width: 20px;
+            height: 20px;
+        }
     }
     
     ul{
@@ -41,6 +67,7 @@ header{
                 align-items: center;
                 height: 75px;
                 text-decoration: none;
+                text-transform: uppercase;
                 
                 span{
                     position: relative;
@@ -93,9 +120,150 @@ header{
         }
     }
     
-    &:hover{
-        height: 357px;
+    
+}
+
+#page-header{
+    padding-top: 75px;
+    position: relative;
+    width: 100%;
+    height: 500px;
+    background: url('../images/ea2.jpg') center no-repeat;
+}
+
+.page-header-overlay{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    padding-top: 75px;
+    
+    span{
+        color: white;
+        margin: 0 auto;
+        text-transform: uppercase;
+        font-size: 60px;
     }
 }
 
+.link-container{
+    width: 100%;
+    height: 100%;
+}
 
+.link{
+    position: relative;
+    width: 100%;
+    height: 400px;
+    float: left;
+    
+    
+    
+    a{
+        
+        height: 100%;
+        text-decoration: none;
+        color: white;
+        text-transform: uppercase;
+        
+        span{
+            font-size: 40px;
+            margin: 0 auto;
+            text-decoration: underline;
+        }
+        
+        .link-overlay{
+            position: absolute;
+            display: flex;
+            align-items: center;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            
+        }
+        
+        &:hover{
+            .link-overlay{
+                opacity: 0;
+            }
+        }
+    }
+}
+
+.jumbotron{
+    padding-top: 75px;
+    width: 100%;
+    height: 100%;
+    background-color: lightgray;
+}
+
+#yarmouth{
+    background: url('../images/yarmouth.jpg') center no-repeat;
+}
+
+#yarmouth2{
+    background: url('../images/yarmouth2.jpg') center no-repeat;
+}
+
+#caister{
+    background: url('../images/caister.jpg') center no-repeat;
+}
+
+#wild-duck{
+    background: url('../images/Wildduck.jpg') center no-repeat;
+}
+
+.orange,
+.green,
+.yellow,
+.blue{
+    opacity: 1;
+    transition: opacity 1s;
+}
+
+.orange{
+    background-color: $linkBlue;
+    
+}
+
+.green{
+    background-color: $linkYellow;
+}
+
+.yellow{
+    background-color: $linkOrange;
+}
+
+.blue{
+    background-color: $linkGreen;
+}
+
+
+
+// Small devices (landscape phones, 544px and up)
+@media (min-width: 544px) {}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+    button{
+        display: none;
+    }
+    header{
+        &:hover{
+            height: 357px;
+        }
+    }
+    .link{
+        width: 50%;
+    }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {}
